@@ -7,7 +7,9 @@ export default function ProjectDetailPage({
 }: {
   params: { slug: string };
 }) {
-  const project = projects.find((p) => p.slug === params.slug);
+  const slug = decodeURIComponent(params.slug).trim().toLowerCase();
+  const project = projects.find((p) => p.slug.toLowerCase() === slug);
+
 
   if (!project) {
     return (
@@ -16,6 +18,9 @@ export default function ProjectDetailPage({
           <h1 className="text-xl font-semibold">Project not found</h1>
           <p className="mt-2 text-sm text-neutral-600">
             The project slug does not exist.
+          </p>
+          <p className="mt-2 text-sm text-neutral-600">
+            The project slug does not exist: <span className="font-mono">{params.slug}</span>
           </p>
           <Link
             href="/projects"
