@@ -4,14 +4,28 @@ import { glass, glassInnerHighlight } from "@/components/ui/glass";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 
-const container = {
+import type { Variants } from "framer-motion";
+
+const container: Variants = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.06 } },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.06 },
+  },
 };
-const item = {
+
+const item: Variants = {
   hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.45,
+      ease: [0.16, 1, 0.3, 1], // ✅ typed cubic-bezier (easeOut-like)
+    },
+  },
 };
+
 
 export function Hero() {
   const reduce = useReducedMotion();
