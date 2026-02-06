@@ -1,0 +1,25 @@
+export const experience = {
+  company: 'MinebeaMitsumi',
+  role: 'Web Developer',
+  period: '2022–Present',
+  bullets: [
+    'Built internal Blazor WebAssembly applications used in production.',
+    'Implemented structured APIs and frontend–backend integration.',
+    'Worked with existing databases and stored procedures.',
+    'Focused on maintainability and real-world workflows.',
+  ],
+  tech: [
+    'Angular',
+    'HTML5',
+    'TypeScript',
+    'Git',
+    'Bootstrap',
+    'Java',
+    'Javascript',
+    'Blazor',
+    '.NET',
+    'Tailwind',
+    'SQL',
+    'C#',
+  ],
+};
