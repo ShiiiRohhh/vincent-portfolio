@@ -91,12 +91,13 @@ export function InteractiveImage({
       <AnimatePresence mode="wait">
         <motion.div
           key={current.src}
-          initial={reduce ? false : { opacity: 0, scale: 1.02 }}
-          animate={reduce ? false : { opacity: 1, scale: 1 }}
-          exit={reduce ? false : { opacity: 0, scale: 1.01 }}
-          transition={{ duration: 0.35, ease }}
+          initial={reduce ? undefined : { opacity: 0, scale: 1.02 }}
+          animate={reduce ? undefined : { opacity: 1, scale: 1 }}
+          exit={reduce ? undefined : { opacity: 0, scale: 1.01 }}
+          transition={reduce ? undefined : { duration: 0.35, ease }}
           className="absolute inset-0"
         >
+
           <Image
             src={current.src}
             alt={current.alt}
