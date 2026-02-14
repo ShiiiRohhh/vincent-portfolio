@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   },
   description:
     "Portfolio of Vincent Nuñez — Full-Stack Developer building workflow-driven web systems and internal tooling.",
+  verification:{
+    google: "TqcJ2YYYPz8SwR0Cng5olMrqOMfM7lHIVnyBgC27b58",
+  },
   alternates: { canonical: "/" },
   openGraph: {
     title: "Vincent Nuñez — Full-Stack Developer",
