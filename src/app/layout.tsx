@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
+import "./globals.css";
+
+import { Background } from "@/components/layout/background";
+import { Navbar } from "@/components/layout/navbar";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vincentnunez.vercel.app"), // or custom domain
+  metadataBase: new URL("https://vincent-portfolio-sable.vercel.app"),
   title: {
     default: "Vincent Nuñez — Full-Stack Developer",
     template: "%s — Vincent Nuñez",
   },
   description:
     "Portfolio of Vincent Nuñez — Full-Stack Developer building workflow-driven web systems and internal tooling.",
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Vincent Nuñez — Full-Stack Developer",
     description:
@@ -28,3 +30,19 @@ export const metadata: Metadata = {
     images: ["/og.png"],
   },
 };
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body>
+        <Background />
+        <Navbar />
+        {children}
+      </body>
+    </html>
+  );
+}
