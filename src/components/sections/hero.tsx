@@ -32,18 +32,6 @@ export function Hero() {
 
   return (
     <section id="home" className="mx-auto max-w-6xl px-6 pt-14 pb-16">
-      <div className="flex items-center justify-center">
-        {/* Pill nav (mockup-like) */}
-        <div className={`${glass} ${glassInnerHighlight} rounded-full px-2 py-2`}>
-          <div className="flex items-center gap-2 text-sm">
-            <a className="rounded-full bg-white/10 px-4 py-2 text-white" href="#home">Home</a>
-            <a className="rounded-full px-4 py-2 text-white/75 hover:text-white" href="#projects">Projects</a>
-            <a className="rounded-full px-4 py-2 text-white/75 hover:text-white" href="#hobbies">Hobbies</a>
-            <a className="rounded-full px-4 py-2 text-white/75 hover:text-white" href="#about">About Me</a>
-          </div>
-        </div>
-      </div>
-
       <motion.div
         variants={reduce ? undefined : container}
         initial={reduce ? undefined : "hidden"}

@@ -1,46 +1,53 @@
-import { HoverCard } from "@/components/motion/hover-card";
-import type { Project } from "@/content/projects";
-import Link from "next/link";
+"use client";
 
-export function ProjectCard({ project }: { project: Project }) {
+import { glass, glassHover, glassInnerHighlight } from "@/components/ui/glass";
+import { Project } from "@/content/projects";
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+type Props = {
+  project: Project;
+  onOpen: () => void;
+};
+
+export function ProjectCard({ project, onOpen }: Props) {
   return (
-    <HoverCard>
-      <article className="group rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <h3 className="text-base font-semibold tracking-tight text-neutral-900">
-              {project.title}
-            </h3>
-            <p className="mt-2 text-sm leading-6 text-neutral-600">
-              {project.subtitle}
-            </p>
+    <motion.article
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.25 }}
+      onClick={onOpen}
+      className={`${glass} ${glassHover} ${glassInnerHighlight} cursor-pointer p-5`}
+    >
+      <div className="relative h-44 overflow-hidden rounded-xl border border-white/10 bg-white/5">
+        {project.confidential || !project.cover ? (
+          <div className="flex h-full items-center justify-center text-sm text-white/60">
+            Confidential
           </div>
+        ) : (
+          <Image
+            src={project.cover}
+            alt={project.title}
+            fill
+            className="object-cover transition-transform duration-300 hover:scale-105"
+          />
+        )}
+      </div>
 
-          <span className="shrink-0 rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs font-medium text-neutral-700">
-            {project.year}
-          </span>
-        </div>
+      <div className="mt-4">
+        <h3 className="text-lg font-semibold text-white">{project.title}</h3>
+        <p className="mt-1 text-sm text-white/60">{project.subtitle}</p>
+      </div>
 
-        <div className="mt-4 flex flex-wrap gap-2">
-          {project.tags.map((t) => (
-            <span
-              key={t}
-              className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700"
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-
-        <div className="mt-5">
-          <Link
-            href={`/projects/${project.slug}`}
-            className="text-sm font-medium text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-900"
+      <div className="mt-4 flex flex-wrap gap-2">
+        {project.tags.slice(0, 4).map((t) => (
+          <span
+            key={t}
+            className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-white/70"
           >
-            View case study
-          </Link>
-        </div>
-      </article>
-    </HoverCard>
+            {t}
+          </span>
+        ))}
+      </div>
+    </motion.article>
   );
 }

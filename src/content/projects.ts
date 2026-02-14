@@ -5,58 +5,14 @@ export type Project = {
   year: string;
   tags: string[];
   featured?: boolean;
-  links?: { label: string; href: string }[];
-  highlights: string[];
   gallery?: { src: string; alt: string }[];
+  confidential?: boolean;
+  cover?: string;
+  highlights: string[];
+  links?: { label: string; href: string }[];
 };
 
 export const projects: Project[] = [
-  {
-    slug: 'forms-portal',
-    title: 'Forms Portal Web',
-    subtitle: 'Workflow-driven forms platform focused on speed, auditability, and enterprise UX.',
-    year: 'FY2023–2025',
-    tags: ['Web', 'Workflow', 'Enterprise UX'],
-    featured: true,
-    highlights: [
-      'Role-oriented flows (submit/approve/track) with predictable UI states.',
-      'Designed for clarity and reduced friction in high-volume use.',
-      'Extensible module pattern (Forms + Timekeeping).',
-    ],
-    gallery: [
-      { src: '/projects/forms-portal/forms-portal-1.png', alt: 'Forms Portal UI 1' },
-      { src: '/projects/forms-portal/forms-portal-2.png', alt: 'Forms Portal UI 2' },
-      { src: '/projects/forms-portal/forms-portal-3.png', alt: 'Forms Portal UI 3' },
-      { src: '/projects/forms-portal/forms-portal-4.png', alt: 'Forms Portal UI 4' },
-      { src: '/projects/forms-portal/forms-portal-5.png', alt: 'Forms Portal UI 5' },
-    ],
-  },
-  {
-    slug: 'forms-portal-timekeeping',
-    title: 'Forms Portal Timekeeping Modules',
-    subtitle: 'TK001 / TK002 / TK007 / TK009 modules modeled for enterprise timekeeping.',
-    year: 'FY2023–2025',
-    tags: ['Timekeeping', 'Modules', 'Workflow'],
-    featured: true,
-    highlights: [
-      'Module-driven architecture for consistent UX and maintenance.',
-      'Designed for kiosk/employee confirmation style flows.',
-      'Clear audit trail behavior and predictable status handling.',
-    ],
-  },
-  {
-    slug: 'logbox-pwa',
-    title: 'Logbox PWA',
-    subtitle: 'Progressive Web App built for operational logging and mobile-first use.',
-    year: 'FY2023–2025',
-    tags: ['PWA', 'Mobile-first', 'Offline-ready'],
-    featured: true,
-    highlights: [
-      'Fast, app-like UX using PWA approach.',
-      'Designed for constrained/real-world operational environments.',
-      'Optimized interactions: fewer taps, clear status visibility.',
-    ],
-  },
   {
     slug: 'temporary-id',
     title: 'Temporary ID Web',
@@ -64,6 +20,7 @@ export const projects: Project[] = [
     year: 'FY2023–2025',
     tags: ['Scan-first UX', 'Audit Log', 'Enterprise'],
     featured: true,
+    cover: '/projects/temporary-id/temporary-id-1.png',
     highlights: [
       'Issuance/return flow designed for guards with minimal steps.',
       'Strong transaction logging for accountability.',
@@ -80,6 +37,8 @@ export const projects: Project[] = [
     subtitle: 'PC + Mobile traceability system designed for real operational tracking.',
     year: 'FY2023–2025',
     tags: ['PC/Mobile', 'Traceability', 'Operations'],
+    featured: true,
+    cover: '/projects/suit-traceability/suit-traceability-2.png',
     highlights: [
       'Built for fast lookup + reliable trace tracking.',
       'Mobile-friendly UI for floor/operations usage.',
@@ -96,6 +55,8 @@ export const projects: Project[] = [
     subtitle: 'Internal technical job order web system for structured requests and tracking.',
     year: 'FY2023–2025',
     tags: ['Internal Tool', 'Tracking', 'Web'],
+    featured: true,
+    cover: '/projects/job-order-technical/job-order-web-2.png',
     highlights: [
       'Structured job order capture and routing.',
       'Optimized for clarity and consistency of request details.',
@@ -113,6 +74,8 @@ export const projects: Project[] = [
     subtitle: 'Tracking utility focused on visibility and quick trace navigation.',
     year: 'FY2023–2025',
     tags: ['Tracking', 'Utility', 'Web'],
+    featured: true,
+    cover: '/projects/location-tracer/location-tracer-2.png',
     highlights: [
       'Designed for quick trace actions and reduced search time.',
       'Clear UI hierarchy for operational use.',
@@ -123,18 +86,15 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: 'appsheet',
-    title: 'AppSheet',
-    subtitle: 'Rapid internal solutions using AppSheet for operational workflows.',
+    slug: 'dc-motor-important-notice',
+    title: 'DCモーター重要連絡事項管理',
+    subtitle: 'Tokyo Japan project for important notice management and tracking.',
     year: 'FY2023–2025',
-    tags: ['Low-code', 'Internal', 'Ops'],
+    tags: ['Japan', 'Management', 'Enterprise'],
+    cover: '/projects/appsheet/appsheet-2.png',
     highlights: [
-      'Fast turnaround internal tooling.',
-      'Optimized for business users with simple flows.',
-    ],
-    gallery: [
-      { src: '/projects/appsheet/appsheet-1.png', alt: 'AppSheet UI 1' },
-      { src: '/projects/appsheet/appsheet-2.png', alt: 'AppSheet UI 2' },
+      'Structured notice handling and traceability.',
+      'Designed with enterprise clarity and maintainable patterns.',
     ],
   },
   {
@@ -143,43 +103,49 @@ export const projects: Project[] = [
     subtitle: 'Portal built during Typhoon Tino for coordinated assistance workflows.',
     year: 'FY2023–2025',
     tags: ['Emergency', 'Portal', 'Workflow'],
+    confidential: true,
     highlights: [
       'Built for quick response and status visibility.',
       'Designed to reduce friction and handle urgent scenarios.',
     ],
   },
   {
-    slug: 'dc-motor-important-notice',
-    title: 'DCモーター重要連絡事項管理',
-    subtitle: 'Tokyo Japan project for important notice management and tracking.',
+    slug: 'forms-portal',
+    title: 'Forms Portal Web',
+    subtitle: 'Workflow-driven forms platform focused on speed, auditability, and enterprise UX.',
     year: 'FY2023–2025',
-    tags: ['Japan', 'Management', 'Enterprise'],
+    tags: ['Web', 'Workflow', 'Enterprise UX'],
+    confidential: true,
     highlights: [
-      'Structured notice handling and traceability.',
-      'Designed with enterprise clarity and maintainable patterns.',
+      'Role-oriented flows (submit/approve/track) with predictable UI states.',
+      'Designed for clarity and reduced friction in high-volume use.',
+      'Extensible module pattern (Forms + Timekeeping).',
     ],
   },
   {
-    slug: 'presence-board',
-    title: 'Presence Board',
-    subtitle: 'Internal presence visibility board for teams/operations.',
+    slug: 'forms-portal-timekeeping',
+    title: 'Forms Portal Timekeeping Modules',
+    subtitle: 'TK001 / TK002 / TK007 / TK009 modules modeled for enterprise timekeeping.',
     year: 'FY2023–2025',
-    tags: ['Internal', 'Visibility', 'Board'],
+    tags: ['Timekeeping', 'Modules', 'Workflow'],
+    confidential: true,
     highlights: [
-      'At-a-glance status visibility.',
-      'Simple UX optimized for frequent glance usage.',
+      'Module-driven architecture for consistent UX and maintenance.',
+      'Designed for kiosk/employee confirmation style flows.',
+      'Clear audit trail behavior and predictable status handling.',
     ],
   },
   {
-    slug: 'eop',
-    title: 'EOP',
-    subtitle:
-      'Enterprise operational process support solution (summary-level due to confidentiality).',
+    slug: 'logbox-pwa',
+    title: 'Logbox PWA',
+    subtitle: 'Progressive Web App built for operational logging and mobile-first use.',
     year: 'FY2023–2025',
-    tags: ['Enterprise', 'Ops', 'Process'],
+    tags: ['PWA', 'Mobile-first', 'Offline-ready'],
+    confidential: true,
     highlights: [
-      'Designed around process clarity and repeatable outcomes.',
-      'Kept intentionally high-level due to sensitive UI/flows.',
+      'Fast, app-like UX using PWA approach.',
+      'Designed for constrained/real-world operational environments.',
+      'Optimized interactions: fewer taps, clear status visibility.',
     ],
   },
 ];

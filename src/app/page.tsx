@@ -1,4 +1,3 @@
-import { Background } from "@/components/layout/background";
 import { ExperienceAndRecommendations } from "@/components/sections/experience-recommendations";
 import { Hero } from "@/components/sections/hero";
 import { ProjectsPreview } from "@/components/sections/projects-preview";
@@ -7,7 +6,6 @@ import { SkillsSection } from "@/components/sections/skills";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Background />
 
       <Hero />
       <SkillsSection />
