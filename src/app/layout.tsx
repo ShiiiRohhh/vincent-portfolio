@@ -1,34 +1,30 @@
-import { Background } from '@/components/layout/background';
-import { Navbar } from "@/components/layout/navbar";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
-  title: "Vincent Nuñez",
-  description: "Vincent Nuñez Portfolio",
+  metadataBase: new URL("https://vincentnunez.vercel.app"), // or custom domain
+  title: {
+    default: "Vincent Nuñez — Full-Stack Developer",
+    template: "%s — Vincent Nuñez",
+  },
+  description:
+    "Portfolio of Vincent Nuñez — Full-Stack Developer building workflow-driven web systems and internal tooling.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Vincent Nuñez — Full-Stack Developer",
+    description:
+      "Workflow-driven web systems, internal tooling, and enterprise UX.",
+    url: "/",
+    siteName: "Vincent Nuñez",
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vincent Nuñez — Full-Stack Developer",
+    description:
+      "Workflow-driven web systems, internal tooling, and enterprise UX.",
+    images: ["/og.png"],
+  },
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="en">
-      <body className="bg-white text-neutral-900 antialiased">
-        <Background />
-        <Navbar />
-        {children}
-      </body>
-    </html>
-  );
-}
